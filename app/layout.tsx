@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={`${notoSans.variable} ${plusJakartaSans.variable} font-sans antialiased`}>
+      <body className={`${notoSans.variable} ${plusJakartaSans.variable} font-sans`}>
         <MobileScreen>{children}</MobileScreen>
       </body>
     </html>

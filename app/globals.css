@@ -15,4 +15,6 @@ body {
   
   /* Firefox 브라우저에서 폰트를 회색조로 렌더링 - 더 얇고 선명한 텍스트 표현 */
   -moz-osx-font-smoothing: grayscale;
+  /* 인도네시아어 텍스트에 최적화된 라인 높이를 모든 텍스트에 적용 */
+  line-height: 1.6;
 }
