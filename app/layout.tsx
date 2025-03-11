@@ -1,7 +1,24 @@
 import type { Metadata } from 'next'
+import { Noto_Sans, Plus_Jakarta_Sans } from 'next/font/google'
 
 import { MobileScreen } from '../components/mobile-screen'
 import './globals.css'
+
+// 인도네시아어를 위한 Noto Sans 폰트 설정
+const notoSans = Noto_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  display: 'swap',
+  variable: '--font-noto-sans',
+})
+
+// 인도네시아에서 인기 있는 Plus Jakarta Sans 폰트
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-jakarta',
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,8 +31,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="id">
+      <body className={`${notoSans.variable} ${plusJakartaSans.variable} font-sans antialiased`}>
         <MobileScreen>{children}</MobileScreen>
       </body>
     </html>

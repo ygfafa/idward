@@ -1,2 +1,18 @@
 @import "tailwindcss";
 
+body {
+  /* 문맥 대체 리가처(Contextual Alternates) 활성화 - 특정 문자 조합이 더 자연스럽게 표시됨 */
+  font-feature-settings: "calt" 1;
+  
+  /* 브라우저가 인공적으로 볼드나 이탤릭 스타일을 생성하지 않도록 방지 - 폰트 디자인 원형 유지 */
+  font-synthesis: none;
+  
+  /* 가독성 최적화 렌더링 - 커닝, 리가처 등을 최적화하여 텍스트를 더 읽기 쉽게 만듦 */
+  text-rendering: optimizeLegibility;
+  
+  /* WebKit 기반 브라우저(Safari, Chrome 등)에서 폰트를 부드럽게 렌더링 - 텍스트 선명도 향상 */
+  -webkit-font-smoothing: antialiased;
+  
+  /* Firefox 브라우저에서 폰트를 회색조로 렌더링 - 더 얇고 선명한 텍스트 표현 */
+  -moz-osx-font-smoothing: grayscale;
+}
