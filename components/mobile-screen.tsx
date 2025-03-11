@@ -2,19 +2,19 @@ import React from 'react'
 
 import { cn } from '../utils/cn'
 
-export const MAX_SCREEN_WIDTH = 440
+export const MAX_MobileScreen_WIDTH = 640
 
-type ScreenProps = {
+type MobileScreenProps = {
   width?: number
 } & React.ComponentProps<'div'>
 
-export const Screen = ({ className, style, children, ...props }: ScreenProps) => {
+export const MobileScreen = ({ className, style, children, ...props }: MobileScreenProps) => {
   return (
     <div
       className={cn('mx-auto flex min-h-full w-full flex-1 flex-col items-start', className)}
       style={{
         boxShadow: '-1px 0 0 0 #eee, 1px 0 0 0 #eee',
-        maxWidth: MAX_SCREEN_WIDTH,
+        maxWidth: MAX_MobileScreen_WIDTH,
         ...style,
       }}
       {...props}
