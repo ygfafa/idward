@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Noto_Sans, Plus_Jakarta_Sans } from 'next/font/google'
 
-import { MobileScreen } from '../components/mobile-screen'
+import { MobileScreen } from '@/components/mobile-screen'
+
 import './globals.css'
 
 // 인도네시아어를 위한 Noto Sans 폰트 설정

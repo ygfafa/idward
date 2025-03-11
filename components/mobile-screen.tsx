@@ -19,7 +19,7 @@ export const MobileScreen = ({ className, style, children, ...props }: MobileScr
       }}
       {...props}
     >
-      <main className="w-full flex-1">{children}</main>
+      <main className="f-full w-full flex-1">{children}</main>
     </div>
   )
 }

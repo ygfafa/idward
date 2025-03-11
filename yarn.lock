@@ -503,7 +503,7 @@
 
 "@tailwindcss/postcss@^4":
   version "4.0.12"
-  resolved "https://registry.npmjs.org/@tailwindcss/postcss/-/postcss-4.0.12.tgz"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/postcss/-/postcss-4.0.12.tgz#eea9e278317338db58fd5752b6982215ad37a77e"
   integrity sha512-r59Sdr8djCW4dL3kvc4aWU8PHdUAVM3O3te2nbYzXsWwKLlHPCuUoZAc9FafXb/YyNDZOMI7sTbKTKFmwOrMjw==
   dependencies:
     "@alloc/quick-lru" "^5.2.0"
@@ -2028,6 +2028,11 @@ loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
+lucide@^0.479.0:
+  version "0.479.0"
+  resolved "https://registry.yarnpkg.com/lucide/-/lucide-0.479.0.tgz#06548f190c37d6fc98e9e89fc29e341e4d2a713c"
+  integrity sha512-TsoBbi2sUM1GHTYPH+KuT5KFqBDZ7HBiWfFA8RbbQXwXJBw9r9k/sguR61YXH/IV9pRqDEM6lNsyb8S9uQn/1g==
+
 math-intrinsics@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz"
@@ -2254,9 +2259,9 @@ postcss@8.4.31:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-postcss@^8.4.41:
+postcss@^8.4.41, postcss@^8.5.3:
   version "8.5.3"
-  resolved "https://registry.npmjs.org/postcss/-/postcss-8.5.3.tgz"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.5.3.tgz#1463b6f1c7fb16fe258736cba29a2de35237eafb"
   integrity sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==
   dependencies:
     nanoid "^3.3.8"
@@ -2303,11 +2308,6 @@ react-dom@^19.0.0:
   integrity sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==
   dependencies:
     scheduler "^0.25.0"
-
-react-icons@^5.5.0:
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-5.5.0.tgz#8aa25d3543ff84231685d3331164c00299cdfaf2"
-  integrity sha512-MEFcXdkP3dLo8uumGI5xN3lDFNsRtrjbOEKDLD7yv76v4wpnEq2Lt2qeHaQOr34I/wPN3s3+N08WkQ+CW37Xiw==
 
 react-is@^16.13.1:
   version "16.13.1"
@@ -2666,7 +2666,7 @@ tailwind-merge@^3.0.2:
 
 tailwindcss@4.0.12, tailwindcss@^4:
   version "4.0.12"
-  resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-4.0.12.tgz"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-4.0.12.tgz#71ab22c78810303b1156354bcc561a747169b5bd"
   integrity sha512-bT0hJo91FtncsAMSsMzUkoo/iEU0Xs5xgFgVC9XmdM9bw5MhZuQFjPNl6wxAE0SiQF/YTZJa+PndGWYSDtuxAg==
 
 tapable@^2.2.0:
