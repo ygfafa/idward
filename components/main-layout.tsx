@@ -1,14 +1,13 @@
+import { cn } from '@/lib/utils'
 import React from 'react'
-
-import { cn } from '@/utils/cn'
 
 export const MAX_MOBILE_SCREEN_WIDTH = 440
 
-type MobileScreenProps = {
+type MainLayoutProps = {
   width?: number
 } & React.ComponentProps<'div'>
 
-export const MobileScreen = ({ className, style, children, ...props }: MobileScreenProps) => {
+export const MainLayout = ({ className, style, children, ...props }: MainLayoutProps) => {
   return (
     <div
       className={cn('mx-auto flex min-h-full w-full flex-1 flex-col items-start', className)}
