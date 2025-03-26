@@ -17,7 +17,7 @@ export const MainLayout = ({ className, style, children, ...props }: MainLayoutP
       }}
       {...props}
     >
-      <main className="f-full w-full flex-1">{children}</main>
+      <main className="flex w-full flex-1 flex-col">{children}</main>
     </div>
   )
 }

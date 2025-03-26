@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Noto_Sans, Plus_Jakarta_Sans } from 'next/font/google'
 
-import { MobileScreen } from '@/components/mobile-screen'
+import { MainLayout } from '@/components/layout/main-layout'
 
 import './globals.css'
 
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className={`${notoSans.variable} ${plusJakartaSans.variable} font-sans`}>
-        <MobileScreen>{children}</MobileScreen>
+        <MainLayout>{children}</MainLayout>
       </body>
     </html>
   )
