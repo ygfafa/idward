@@ -1,10 +1,19 @@
-import { Button } from '@/components/ui/button'
+import { BottomFixedButton } from '@/components/pattern/bottom-fixed-button'
+
+import CalendarIcon from './_assets/calendar.svg'
 
 const Page = () => {
   return (
     <div>
       <h1>Hello</h1>
-      <Button>Click me</Button>
+
+      <div>
+        <div>
+          <CalendarIcon />
+        </div>
+      </div>
+
+      <BottomFixedButton>lorem</BottomFixedButton>
     </div>
   )
 }
