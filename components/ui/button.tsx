@@ -1,8 +1,7 @@
+import { cn } from '@/lib/utils'
 import { type VariantProps, cva } from 'class-variance-authority'
 import { Loader2 } from 'lucide-react'
 import React from 'react'
-
-import { cn } from '@/utils/cn'
 
 const buttonVariants = cva(
   'text-md inline-flex items-center justify-center rounded-md leading-none font-medium whitespace-nowrap transition-colors select-none disabled:pointer-events-none disabled:opacity-50',
