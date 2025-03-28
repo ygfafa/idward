@@ -8,7 +8,7 @@ import { MAX_MOBILE_SCREEN_WIDTH } from './main-layout'
 
 export const SCREEN_NAV_HEIGHT = 56
 export type ScreenNavProps = {
-  title: string
+  title?: string
   hasBackButton?: boolean
 }
 export const ScreenNav = ({ title, hasBackButton = true }: ScreenNavProps) => {
