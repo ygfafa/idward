@@ -7,6 +7,7 @@ type ScreenProps = {
   nav?: ScreenNavProps
   noSidePadding?: boolean
   noHeaderPadding?: boolean
+  background?: string
 } & React.ComponentProps<'div'>
 
 export const Screen = ({
@@ -15,6 +16,8 @@ export const Screen = ({
   nav,
   noSidePadding = false,
   noHeaderPadding = false,
+  style,
+  background,
   ...props
 }: ScreenProps) => {
   return (
@@ -25,9 +28,10 @@ export const Screen = ({
         noHeaderPadding ? '' : 'pt-14',
         className,
       )}
+      style={{ ...style, background }}
       {...props}
     >
-      {nav && <ScreenNav {...nav} />}
+      {nav && <ScreenNav {...nav} className={background ? 'bg-transparent' : undefined} />}
       {children}
     </div>
   )

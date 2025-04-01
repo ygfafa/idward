@@ -1,5 +1,6 @@
 'use client'
 
+import { cn } from '@/lib/utils'
 import { ArrowLeft } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
@@ -10,11 +11,17 @@ export const SCREEN_NAV_HEIGHT = 56
 export type ScreenNavProps = {
   title?: string
   hasBackButton?: boolean
-}
-export const ScreenNav = ({ title, hasBackButton = true }: ScreenNavProps) => {
+} & React.ComponentProps<'div'>
+export const ScreenNav = ({ title, hasBackButton = true, className, ...props }: ScreenNavProps) => {
   const router = useRouter()
   return (
-    <div className="fixed top-0 right-0 left-0 z-50 flex w-full items-center justify-center bg-white">
+    <div
+      className={cn(
+        'fixed top-0 right-0 left-0 z-50 flex w-full items-center justify-center bg-white',
+        className,
+      )}
+      {...props}
+    >
       <nav
         className="relative flex w-full items-center px-3"
         style={{ height: SCREEN_NAV_HEIGHT, maxWidth: MAX_MOBILE_SCREEN_WIDTH }}
