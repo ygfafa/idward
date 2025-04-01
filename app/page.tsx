@@ -1,40 +1,62 @@
-export default function Home() {
+'use client'
+
+import { LucideChevronRight } from 'lucide-react'
+import Image from 'next/image'
+import { useState } from 'react'
+
+import { Screen } from '@/components/layout/screen'
+import { BottomFixedButton } from '@/components/pattern/bottom-fixed-button'
+
+const Page = () => {
+  const [isWokeUp, setIsWokeUp] = useState(false)
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-8 p-8">
-      <h1 className="text-3xl font-bold">Selamat Datang di Aplikasi Kami</h1>
-      <p className="text-center text-lg">
-        Ini adalah contoh aplikasi yang menggunakan font yang dioptimalkan untuk pengguna Indonesia.
-      </p>
+    <Screen background={isWokeUp ? '#44A2F7' : '#1B0B46'} noHeaderPadding>
+      <Image
+        src={isWokeUp ? '/images/sun.png' : '/images/moon.png'}
+        width={0}
+        height={0}
+        sizes="100vw"
+        alt="hero"
+        className="w-full"
+      />
 
-      <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
-          <h2 className="mb-4 text-xl font-bold">Font Noto Sans</h2>
-          <p className="font-sans">
-            Noto Sans adalah font yang dirancang oleh Google untuk mendukung semua bahasa. Font ini
-            sangat cocok untuk konten Indonesia karena keterbacaannya yang baik pada ukuran kecil.
-          </p>
+      <div className="mb-4 flex flex-col text-white">
+        <span>10:00~</span>
+        <span className="text-4xl font-bold">1h 25min 😴</span>
+      </div>
+      <div className="grid grid-cols-2 gap-3">
+        <div className="row-span-2 flex items-center justify-between gap-1 rounded-lg bg-white px-3 py-4 shadow">
+          <div className="flex flex-col">
+            <span className="font-semibold text-gray-400">My coupon</span>
+            <span className="text-xl font-bold">☕️ 21%</span>
+          </div>
+
+          <LucideChevronRight />
         </div>
-
-        <div className="rounded-lg border border-gray-200 p-6 shadow-sm">
-          <h2 className="font-jakarta mb-4 text-xl font-bold">Font Plus Jakarta Sans</h2>
-          <p className="font-jakarta">
-            Plus Jakarta Sans adalah font yang terinspirasi oleh kota Jakarta. Font ini modern dan
-            cocok untuk aplikasi yang menargetkan pengguna Indonesia, terutama di daerah perkotaan.
-          </p>
+        <div className="row-span-2 flex items-center justify-between rounded-lg bg-white px-3 py-4 shadow">
+          <span className="text-xl font-bold">Reviews</span>
+          <LucideChevronRight />
+        </div>
+        <div className="col-span-2 rounded-lg bg-white px-3 py-4 shadow">
+          <div className="flex flex-col">
+            <span className="font-semibold text-gray-400">My bedtime</span>
+            <span className="truncate text-xl font-bold">10:00 PM ~ 기도시간 20분 전</span>
+          </div>
         </div>
       </div>
 
-      <div className="mt-8 w-full max-w-md rounded-lg border border-gray-200 p-6 shadow-sm">
-        <h2 className="mb-4 text-xl font-bold">Contoh Teks Indonesia</h2>
-        <p className="mb-2">
-          Bahasa Indonesia adalah bahasa resmi Republik Indonesia dan merupakan bahasa persatuan
-          bangsa Indonesia.
-        </p>
-        <p className="font-jakarta">
-          Dengan lebih dari 270 juta penduduk, Indonesia adalah negara dengan populasi terbesar
-          keempat di dunia.
-        </p>
-      </div>
-    </div>
+      {isWokeUp ? (
+        <BottomFixedButton className="bg-[#F5C13D] font-bold" onClick={() => setIsWokeUp(false)}>
+          Start sleeping
+        </BottomFixedButton>
+      ) : (
+        <BottomFixedButton className="bg-blue-600 font-bold" onClick={() => setIsWokeUp(true)}>
+          ☀️ I woke up.
+        </BottomFixedButton>
+      )}
+    </Screen>
   )
 }
+
+export default Page
