@@ -1,4 +1,4 @@
-interface ProgressBarProps {
+type ProgressBarProps = {
   percent: number
 }
 

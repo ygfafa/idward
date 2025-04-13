@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Screen } from '@/components/layout/screen'
 import { BottomFixedButton } from '@/components/pattern/bottom-fixed-button'
 import { Centered } from '@/components/pattern/centered'
-import { ProgressBar } from '@/components/ui/ProgressBar'
+import { ProgressBar } from '@/components/ui/progress-bar'
 
 const Page = () => {
   return (
