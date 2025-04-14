@@ -4,6 +4,7 @@ import { convertTo12Hour } from '@/app/components/common/time-picker'
 import { useState } from 'react'
 
 import { Screen } from '@/components/layout/screen'
+import { BottomFixedButton } from '@/components/pattern/bottom-fixed-button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
@@ -71,6 +72,7 @@ const Page = () => {
           setIsWakeUpBottomSheetOpen(false)
         }}
       />
+      <BottomFixedButton>Complete</BottomFixedButton>
     </Screen>
   )
 }
