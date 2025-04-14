@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 
 export type TimePickerValue = {
   hour: number
@@ -31,11 +31,8 @@ export const TimePicker = ({ value, onChange }: TimePickerProps) => {
     const index = Math.round(scrollTop / ITEM_HEIGHT)
     const value = items[Math.min(Math.max(index, 0), items.length - 1)]
     setValue(value)
-  }
-
-  useEffect(() => {
     onChange?.({ hour: selectedHour, minute: selectedMinute })
-  }, [selectedHour, selectedMinute, onChange])
+  }
 
   return (
     <div className="flex gap-4 py-4">
@@ -63,6 +60,8 @@ export const TimePicker = ({ value, onChange }: TimePickerProps) => {
                       top: hour * ITEM_HEIGHT,
                       behavior: 'smooth',
                     })
+                    setSelectedHour(hour)
+                    onChange?.({ hour, minute: selectedMinute })
                   }
                 }}
               >
@@ -100,6 +99,8 @@ export const TimePicker = ({ value, onChange }: TimePickerProps) => {
                     top: minute * ITEM_HEIGHT,
                     behavior: 'smooth',
                   })
+                  setSelectedMinute(minute)
+                  onChange?.({ hour: selectedHour, minute })
                 }
               }}
             >

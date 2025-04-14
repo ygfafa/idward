@@ -8,10 +8,13 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
 import { BedtimeBottomSheetSelector } from './components/bedtime-bottom-sheet-selector'
+import { WakeUpBottomSheetSelector } from './components/wake-up-bottom-sheet-selector'
 
 const Page = () => {
   const [isBedtimeBottomSheetOpen, setIsBedtimeBottomSheetOpen] = useState(false)
-  const [selectedTime, setSelectedTime] = useState<{ hour: number; minute: number }>()
+  const [isWakeUpBottomSheetOpen, setIsWakeUpBottomSheetOpen] = useState(false)
+  const [bedTime, setBedTime] = useState<{ hour: number; minute: number }>()
+  const [wakeUpTime, setWakeUpTime] = useState<{ hour: number; minute: number }>()
 
   return (
     <Screen nav={{ hasBackButton: true }}>
@@ -36,14 +39,18 @@ const Page = () => {
           <Label htmlFor="bedtime">Bedtime</Label>
           <Input
             readOnly
-            value={formatTime(selectedTime)}
+            value={formatTime(bedTime)}
             onFocus={() => setIsBedtimeBottomSheetOpen(true)}
           />
         </div>
 
         <div className="flex flex-col gap-2">
           <Label htmlFor="wakeup">Wake-up time</Label>
-          <Input readOnly onFocus={() => console.log('z')} />
+          <Input
+            readOnly
+            value={formatTime(wakeUpTime)}
+            onFocus={() => setIsWakeUpBottomSheetOpen(true)}
+          />
         </div>
       </div>
 
@@ -51,8 +58,17 @@ const Page = () => {
         isOpen={isBedtimeBottomSheetOpen}
         onClose={() => setIsBedtimeBottomSheetOpen(false)}
         onOk={(value) => {
-          setSelectedTime(value)
+          setBedTime(value)
           setIsBedtimeBottomSheetOpen(false)
+        }}
+      />
+
+      <WakeUpBottomSheetSelector
+        isOpen={isWakeUpBottomSheetOpen}
+        onClose={() => setIsWakeUpBottomSheetOpen(false)}
+        onOk={(value) => {
+          setWakeUpTime(value)
+          setIsWakeUpBottomSheetOpen(false)
         }}
       />
     </Screen>
