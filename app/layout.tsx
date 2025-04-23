@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Noto_Sans, Plus_Jakarta_Sans } from 'next/font/google'
 
 import { MainLayout } from '@/components/layout/main-layout'
+import { SonnerToaster } from '@/components/sooner-toast'
 
 import './globals.css'
 
@@ -46,6 +47,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className={`${notoSans.variable} ${plusJakartaSans.variable} font-sans`}>
+        <SonnerToaster />
         <MainLayout>{children}</MainLayout>
       </body>
     </html>

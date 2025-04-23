@@ -1,7 +1,10 @@
 'use client'
 
+import { createUser } from '@/actions/user/user.action'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { setCookie } from 'cookies-next/client'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 import { z } from 'zod'
 
 import { Screen } from '@/components/layout/screen'
@@ -11,7 +14,7 @@ import { Label } from '@/components/ui/label'
 
 const signupSchema = z
   .object({
-    phone: z
+    phoneNumber: z
       .string()
       .min(1, 'Please enter your phone number')
       .regex(/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/, 'Please enter a valid phone number'),
@@ -48,10 +51,16 @@ const Page = () => {
 
   const onSubmit = async (data: SignupFormData) => {
     try {
-      alert(JSON.stringify(data))
-      // TODO: API call
-    } catch (error) {
-      console.error('Signup failed:', error)
+      const users = await createUser({
+        nickname: data.nickname,
+        password: data.password,
+        phone_number: data.phoneNumber,
+      })
+
+      setCookie('user', users)
+    } catch {
+      // 다국어 처리
+      toast.warning('이미 등록되어 있는 사용자입니다.')
     }
   }
 
@@ -72,8 +81,8 @@ const Page = () => {
             id="phone"
             type="tel"
             placeholder="Enter your phone number (e.g. 010-1234-5678)"
-            {...register('phone')}
-            error={errors.phone?.message}
+            {...register('phoneNumber')}
+            error={errors.phoneNumber?.message}
           />
         </div>
 
