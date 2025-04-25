@@ -3,6 +3,7 @@
 import { createUser } from '@/actions/user/user.action'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { setCookie } from 'cookies-next/client'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
@@ -41,6 +42,7 @@ const signupSchema = z
 type SignupFormData = z.infer<typeof signupSchema>
 
 const Page = () => {
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -58,6 +60,7 @@ const Page = () => {
       })
 
       setCookie('user', users)
+      router.replace('/coming-soon')
     } catch {
       // 다국어 처리
       toast.warning('이미 등록되어 있는 사용자입니다.')
@@ -119,8 +122,8 @@ const Page = () => {
           />
         </div>
 
-        <BottomFixedButton type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Signing up...' : 'Sign up'}
+        <BottomFixedButton type="submit" disabled={isSubmitting} loading={isSubmitting}>
+          Sign up
         </BottomFixedButton>
       </form>
     </Screen>
