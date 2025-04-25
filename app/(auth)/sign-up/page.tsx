@@ -17,25 +17,25 @@ const signupSchema = z
   .object({
     phoneNumber: z
       .string()
-      .min(1, 'Please enter your phone number')
-      .regex(/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/, 'Please enter a valid phone number'),
+      .min(1, 'Masukkan nomor telepon Anda')
+      .regex(/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/, 'Masukkan nomor telepon yang valid'),
     nickname: z
       .string()
-      .min(1, 'Please enter your nickname')
-      .min(2, 'Nickname must be at least 2 characters')
-      .max(10, 'Nickname must be at most 10 characters'),
+      .min(1, 'Masukkan nama panggilan Anda')
+      .min(2, 'Nama panggilan harus terdiri dari setidaknya 2 karakter')
+      .max(10, 'Nama panggilan harus terdiri maksimal 10 karakter'),
     password: z
       .string()
-      .min(1, 'Please enter your password')
-      .min(8, 'Password must be at least 8 characters')
+      .min(1, 'Masukkan kata sandi Anda')
+      .min(8, 'Kata sandi harus terdiri dari setidaknya 8 karakter')
       .regex(
         /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
-        'Password must contain letters, numbers, and special characters',
+        'Kata sandi harus mengandung huruf, angka, dan karakter khusus',
       ),
-    confirmPassword: z.string().min(1, 'Please confirm your password'),
+    confirmPassword: z.string().min(1, 'Konfirmasi kata sandi Anda'),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: 'Passwords do not match',
+    message: 'Kata sandi tidak cocok',
     path: ['confirmPassword'],
   })
 
@@ -71,19 +71,23 @@ const Page = () => {
     <Screen nav={{ hasBackButton: true }}>
       <div className="flex flex-col gap-2 pt-4 pb-10">
         <h2 className="text-2xl font-bold">
-          Sign up and earn money <br />
-          while you sleep every day!
+          Daftar dan dapatkan uang
+          <br />
+          sambil tidur setiap hari!
         </h2>
-        <p className="text-gray-600">Right now, 89 users are earning money.</p>
+        <p className="text-gray-600">
+          Saat ini, 89 pengguna <br />
+          sedang mendapatkan uang.
+        </p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
-          <Label htmlFor="phone">Phone Number</Label>
+          <Label htmlFor="phone">Nama panggilan</Label>
           <Input
             id="phone"
             type="tel"
-            placeholder="Enter your phone number (e.g. 010-1234-5678)"
+            placeholder="Masukkan nomor telepon Anda (e.g. 010-1234-5678)"
             {...register('phoneNumber')}
             error={errors.phoneNumber?.message}
           />
@@ -94,36 +98,36 @@ const Page = () => {
           <Input
             id="nickname"
             type="text"
-            placeholder="Enter 2-10 characters"
+            placeholder="Masukkan 2-10 karakter"
             {...register('nickname')}
             error={errors.nickname?.message}
           />
         </div>
 
         <div className="flex flex-col gap-2">
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password">Kata sandi</Label>
           <Input
             id="password"
             type="password"
-            placeholder="At least 8 characters with letters, numbers, and special characters"
+            placeholder="Masukkan setidaknya 8 karakter dengan huruf, angka, dan karakter khusus"
             {...register('password')}
             error={errors.password?.message}
           />
         </div>
 
         <div className="flex flex-col gap-2">
-          <Label htmlFor="confirmPassword">Confirm Password</Label>
+          <Label htmlFor="confirmPassword">Konfirmasi kata sandi</Label>
           <Input
             id="confirmPassword"
             type="password"
-            placeholder="Re-enter your password"
+            placeholder="Masukkan kembali kata sandi Anda"
             {...register('confirmPassword')}
             error={errors.confirmPassword?.message}
           />
         </div>
 
         <BottomFixedButton type="submit" disabled={isSubmitting} loading={isSubmitting}>
-          Sign up
+          Selesaikan pendaftaran
         </BottomFixedButton>
       </form>
     </Screen>

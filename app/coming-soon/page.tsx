@@ -1,15 +1,13 @@
-import { X } from 'lucide-react'
 import Image from 'next/image'
 
 import { Screen } from '@/components/layout/screen'
-import { Button } from '@/components/ui/button'
+
+import { CloseButton } from './_components/close-button'
 
 const Page = () => {
   return (
     <Screen background="#1B0B46">
-      <Button size="icon" className="fixed top-4 right-4 bg-transparent text-white">
-        <X />
-      </Button>
+      <CloseButton />
       <div className="flex flex-col items-center justify-center pt-4 text-white">
         <p>TidurCuan, menghasilkan uang saat tidur</p>
         <h2 className="text-center text-4xl font-bold">

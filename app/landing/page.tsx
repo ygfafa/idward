@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { Screen } from '@/components/layout/screen'
 import { BottomFixedButton } from '@/components/pattern/bottom-fixed-button'
@@ -14,26 +15,33 @@ const Page = () => {
       <div className="flex flex-1 flex-col justify-between gap-10">
         <Centered className="flex-col gap-4">
           <h2 className="text-center text-3xl leading-10 font-bold">
-            Earn money
-            <br /> while you sleep.
+            Dapatkan uang
+            <br /> saat Anda tidur.
           </h2>
           <Image src="/images/clock_with_rp.png" width={195} height={160} alt="clock_with_rp" />
         </Centered>
 
         <div className="flex flex-col gap-3">
-          <LandingDescriptionRow icon={<CalendarIcon />} title="Earn points while you sleep." />
+          <LandingDescriptionRow
+            icon={<CalendarIcon />}
+            title={'Poin (uang) bertambah\nsaat Anda tidur.'}
+          />
           <LandingDescriptionRow
             icon={<ShoesIcon />}
-            title={'Wake up at your set time\nand earn additional bonus points'}
+            title={
+              'Jika Anda bangun\npada waktu yang telah ditentukan,\nAnda akan mendapatkan lebih banyak poin.'
+            }
           />
           <LandingDescriptionRow
             icon={<PencilIcon />}
-            title={'Earn an average of 1,000 Rp\nevery two weeks.'}
+            title={'Rata-rata, Anda bisa mendapatkan\n1.000 Rp dalam 2 minggu.'}
           />
         </div>
       </div>
 
-      <BottomFixedButton>Start Now</BottomFixedButton>
+      <Link href="/sign-up">
+        <BottomFixedButton>Mulai Sekarang</BottomFixedButton>
+      </Link>
     </Screen>
   )
 }
