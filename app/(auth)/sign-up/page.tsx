@@ -4,6 +4,7 @@ import { createUser } from '@/actions/user/user.action'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { setCookie } from 'cookies-next/client'
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
@@ -50,6 +51,10 @@ const Page = () => {
   } = useForm<SignupFormData>({
     resolver: zodResolver(signupSchema),
   })
+
+  useEffect(() => {
+    router.prefetch('/coming-soon')
+  }, [router])
 
   const onSubmit = async (data: SignupFormData) => {
     try {
