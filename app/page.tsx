@@ -2,12 +2,15 @@
 
 import { LucideChevronRight } from 'lucide-react'
 import Image from 'next/image'
+import { redirect } from 'next/navigation'
 import { useState } from 'react'
 
 import { Screen } from '@/components/layout/screen'
 import { BottomFixedButton } from '@/components/pattern/bottom-fixed-button'
 
 const Page = () => {
+  redirect('/landing')
+  return
   const [isWokeUp, setIsWokeUp] = useState(false)
 
   return (
