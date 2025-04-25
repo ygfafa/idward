@@ -63,7 +63,7 @@ const Page = () => {
       router.replace('/coming-soon')
     } catch {
       // 다국어 처리
-      toast.warning('이미 등록되어 있는 사용자입니다.')
+      toast.warning('Pengguna sudah terdaftar.')
     }
   }
 
