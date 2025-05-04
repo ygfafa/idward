@@ -3,6 +3,7 @@
 import { createUser } from '@/actions/user/user.action'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { setCookie } from 'cookies-next/client'
+import { isValidPhoneNumber } from 'libphonenumber-js'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -16,15 +17,14 @@ import { Label } from '@/components/ui/label'
 
 const signupSchema = z
   .object({
-    phoneNumber: z
-      .string()
-      .min(1, 'Masukkan nomor telepon Anda')
-      .regex(/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/, 'Masukkan nomor telepon yang valid'),
+    phoneNumber: z.string().refine((val) => isValidPhoneNumber(val, 'ID'), {
+      message: 'Masukkan nomor telepon Indonesia yang valid',
+    }),
     nickname: z
       .string()
-      .min(1, 'Masukkan nama panggilan Anda')
-      .min(2, 'Nama panggilan harus terdiri dari setidaknya 2 karakter')
-      .max(10, 'Nama panggilan harus terdiri maksimal 10 karakter'),
+      .min(1, 'Masukkan Nomor Telepon Anda')
+      .min(2, 'Nomor Telepon harus terdiri dari setidaknya 2 karakter')
+      .max(10, 'Nomor Telepon harus terdiri maksimal 10 karakter'),
     password: z
       .string()
       .min(1, 'Masukkan kata sandi Anda')
@@ -80,19 +80,19 @@ const Page = () => {
           <br />
           sambil tidur setiap hari!
         </h2>
-        <p className="text-gray-600">
+        {/* <p className="text-gray-600">
           Saat ini, 89 pengguna <br />
           sedang mendapatkan uang.
-        </p>
+        </p> */}
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
-          <Label htmlFor="phone">Nama panggilan</Label>
+          <Label htmlFor="phone">Nomor Telepon</Label>
           <Input
             id="phone"
             type="tel"
-            placeholder="Masukkan nomor telepon Anda (e.g. 010-1234-5678)"
+            placeholder="Masukkan nomor telepon Anda (e.g. 812-3456-7890)"
             {...register('phoneNumber')}
             error={errors.phoneNumber?.message}
           />
