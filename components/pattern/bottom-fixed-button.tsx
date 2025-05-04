@@ -18,7 +18,9 @@ export const BottomFixedButton = ({ children, className, ...props }: BottomFixed
     <section>
       <div style={{ height: HEIGHT }}></div>
       <div
-        className={cn('fixed right-0 bottom-0 left-0 z-50 flex w-full items-center justify-center')}
+        className={cn(
+          'fixed right-0 bottom-0 left-0 z-50 flex w-full items-center justify-center bg-white',
+        )}
       >
         <div
           className="flex w-full items-center px-5"
