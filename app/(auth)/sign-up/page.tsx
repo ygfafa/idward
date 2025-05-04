@@ -99,7 +99,7 @@ const Page = () => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <Label htmlFor="nickname">Nickname</Label>
+          <Label htmlFor="nickname">Nama panggilan</Label>
           <Input
             id="nickname"
             type="text"
